@@ -1,22 +1,6 @@
-const sayMethods = require("./funcs-module");
-const names = require("./names-module.js");
-const sibs = require("./mind-grenade.js");
-const os = require("os");
-const { readFile, writeFile } = require("fs");
-const http = require("http");
+const _ = require('lodash');
 
-// Browser REQUESTS your server and gets RESPONSE
-const server = http.createServer((req, res) => {
-  if (req.url === "/") {
-    res.end("HELLOW SERVER WOROLD");
-  } else if (req.url === "/about") {
-    res.end("THIS IS ALL about");
-  } else {
-    res.end(`
-    <h1 style="color: red;">LOL YOU TRIPPING BRUV</h1>
-    <a href="/">GET HOME</a>`);
-  }
-});
+const items = [1, [2, [3, [4]]]];
+const newItems = _.flattenDeep(items);
 
-// SETTING THE PORT TO LISTEN
-server.listen(5000);
+console.log(items, newItems);
